@@ -3,14 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MonoGameXFormsSample.Controls"
              mc:Ignorable="d"
              x:Class="MonoGameXFormsSample.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <RelativeLayout>
+        <local:MonoGameView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"/>
+        <StackLayout InputTransparent="True" CascadeInputTransparent="False"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+            <Label x:Name="TextLabel" Text="I'm the MonoGame Page. How you doin?" FontSize="Medium"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+        <StackLayout InputTransparent="True" CascadeInputTransparent="False"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                     VerticalOptions="End"
+                     Padding="10">
+            <Button Text="I'm a button."
+                    HorizontalOptions="Start"
+                    Clicked="Button_Clicked"/>
+            <Button Text="I'm a button two!"
+                    HorizontalOptions="Start"
+                    Clicked="Button_Clicked"/>
+            <Button Text="Yep, still a button."
+                    HorizontalOptions="Start"
+                    Clicked="Button_Clicked"/>
+        </StackLayout>
+    </RelativeLayout>
 
 </ContentPage>

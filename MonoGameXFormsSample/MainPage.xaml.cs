@@ -17,5 +17,11 @@ namespace MonoGameXFormsSample
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            TextLabel.Text = $"The '{button.Text}' button was pressed. Sweet.";
+        }
     }
 }
